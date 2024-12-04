@@ -4,22 +4,23 @@
 - Сортирует найденные строки в порядке их длины (от самой короткой к самой длинной) и выводит их.'''
 # запрашивает искомую строку
 needed_string = input ("Введите искомую строку: ")
-# открыте файла text.txt
+# открыте файла text.txt 
 with open('text.txt', 'r', encoding = 'utf-8') as file:
-    lines = file.readlines()
+    lines = file.readlines() # запись строк из файла в переменную
 # поиск искомой строки
-matching_lines = []
-for line in lines:
-    if needed_string in line:
-        matching_lines.append(line.strip())
+matching_lines = [] # пустой массив
+for line in lines: # цикл проходит по каждой строке 
+    if needed_string in line: # если в строке есть искомая подстрока
+        # добавление найденной строки в массив с удалением проблов в начале и конце строки
+        matching_lines.append(line.strip()) 
 # вывод количества найденных строк
 print("Количество найденных строк: ", len(matching_lines))
 # вывод найденных строк
 for line in matching_lines:
-    print(line)
+    print(line) # вывод
 # сортировка строк по длине
-sorted_lines = sorted(matching_lines, key = len)
+sorted_lines = sorted(matching_lines, key = len) # ключом является встроенная функция len
 # вывод отсортированных строк
 print("Отсортированные по длине строки: ")
-for line in sorted_lines:
-    print(line)
+for line in sorted_lines: # цикл, проходящий по отсортированному массиву
+    print(line) # вывод каждой строки
